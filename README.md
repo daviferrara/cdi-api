@@ -1,6 +1,6 @@
 # cdi-api
 
-Project created with spring Ini
+Project created with spring Initializer
 
 Build an executable JAR
 You can run the application from the command line with Maven. You can also build a single executable JAR file that contains all the necessary dependencies, classes, and resources and run that. Building an executable jar makes it easy to ship, version, and deploy the service as an application throughout the development lifecycle, across different environments, and so forth.
