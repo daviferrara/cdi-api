@@ -1,6 +1,6 @@
 # cdi-api
 
-### Show a REST returning the CDI historical index 
+### Rest webServer returning the CDI historical index within two dates
 
 Project created with spring Initializer
 
@@ -10,9 +10,11 @@ You can run the application from the command line with Maven. You can also build
 To run the application use
 ### ./mvnw spring-boot:run. 
 
-Alternatively, you can build the JAR file with ./mvnw clean package and then run the JAR file, as follows:
+Alternatively, you can build the JAR file with 
 
-### java -jar target/cdi-0.0.1.jarr
+### ./mvnw clean package 
+and then run the JAR file, as follows:
+### java -jar target/cdi-0.0.1.jar
 
 Logging output is displayed. The service should be up and running within a few seconds.
 
