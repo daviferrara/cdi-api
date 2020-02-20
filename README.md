@@ -1,16 +1,18 @@
 # cdi-api
 
+### Show a REST returning the CDI historical index 
+
 Project created with spring Initializer
 
 Build an executable JAR
 You can run the application from the command line with Maven. You can also build a single executable JAR file that contains all the necessary dependencies, classes, and resources and run that. Building an executable jar makes it easy to ship, version, and deploy the service as an application throughout the development lifecycle, across different environments, and so forth.
 
 To run the application use
-./mvnw spring-boot:run. 
+### ./mvnw spring-boot:run. 
 
 Alternatively, you can build the JAR file with ./mvnw clean package and then run the JAR file, as follows:
 
-java -jar target/cdi-0.0.1.jarr
+### java -jar target/cdi-0.0.1.jarr
 
 Logging output is displayed. The service should be up and running within a few seconds.
 
