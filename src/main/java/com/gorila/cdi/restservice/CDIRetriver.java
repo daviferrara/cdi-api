@@ -15,7 +15,6 @@ public class CDIRetriver {
     static HashMap<Date,Double> cdiValues = null;
     static SimpleDateFormat csvDtFormat = new SimpleDateFormat("dd/MM/yyyy");
     static SimpleDateFormat restDtFormat = new SimpleDateFormat("yyyyMMdd");
-    static Response response;
 
     static Response get(String dt1, String dt2)  {
         Date dtIni = null;
@@ -34,12 +33,17 @@ public class CDIRetriver {
             }
         }
 
-        List<Price> prices = new ArrayList<Price>();
-        for (Date dt: cdiValues.keySet()){
-            if (dt.compareTo(dtIni) == 1
-                 && dt.compareTo(currDt )==-1   ){
-                prices.add(new Price(dt,cdiValues.get(dt)));
+        List<Price> prices = new ArrayList<>();
+
+        try {
+            for (Date dt: cdiValues.keySet()){
+                if ( (dt.compareTo(dtIni) == 1 || dt.compareTo(dtIni) == 0)
+                     && (dt.compareTo(currDt )==-1  || dt.compareTo(currDt )==0  )){
+                    prices.add(new Price(dt,cdiValues.get(dt)));
+                }
             }
+        }catch (RuntimeException e ){
+            System.err.println(e);
         }
         return new Response(prices);
     }
@@ -58,11 +62,11 @@ public class CDIRetriver {
                 cdiValues.put(dt,value);
             }
         }catch (Exception e ){
-
+            System.err.println(e);
         }
     }
 
-    public static void main(String[] args) throws ParseException {
+    public static void main(String[] args)  {
         System.out.println(get ("20191015","20191102"  ));
     }
 }
