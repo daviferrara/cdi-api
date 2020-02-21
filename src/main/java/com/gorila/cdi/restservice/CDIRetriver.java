@@ -1,7 +1,8 @@
 package com.gorila.cdi.restservice;
 
 import java.io.BufferedReader;
-import java.io.FileReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -44,11 +45,11 @@ public class CDIRetriver {
     }
 
     static void readCSV(){
-        String file  = CDIRetriver.class.getClassLoader().getResource("CDI_Prices.csv").getFile();
+        InputStream in  = CDIRetriver.class.getClassLoader().getResourceAsStream("CDI_Prices.csv");
         String line = "";
         cdiValues=new HashMap<Date,Double>();
         try {
-            BufferedReader br= new BufferedReader(new FileReader(file));
+            BufferedReader br= new BufferedReader(new InputStreamReader(in));
             br.readLine(); //HEADER
             while ((line=br.readLine())!=null){
                 String[] data =  line.split(",");
